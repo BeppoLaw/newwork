@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/鼠标脱宅.css"/>
+		<script type="text/javascript"> 
+			window.onload=function(){
+				var oDiv=document.getElementById('all');
+				var oBtn=document.getElementById('btn');
+				var oClose=document.getElementById('close');
+				var oLog=document.getElementById('login');
+				oBtn.onclick=function(){
+					var oLog=document.getElementById('login');
+					oLog.style.display='block';
+					 var disX=0;
+					 var disY=0;
+				oLog.onmousedown=function(ev){
+					var oEvent=ev||event;
+					var oLog=document.getElementById('login');
+					disX=oEvent.clientX-oLog.offsetLeft;
+					disY=oEvent.clientY-oLog.offsetTop;
+					document.onmousemove=function(ev){
+						var oEvent=ev||event;
+						var o=oEvent.clientX-disX;
+						var w=oEvent.clientY-disY;
+						if (o<0) {
+							o=0
+						} else if(o>oDiv.offsetWidth-oLog.offsetWidth){
+							o=oDiv.offsetWidth-oLog.offsetWidth
+						}
+						if (w<0) {
+							w=0
+						} else if(w>oDiv.offsetHeight-oLog.offsetHeight){
+							w=oDiv.offsetHeight-oLog.offsetHeight
+						}
+						oLog.style.left=o+'px';
+						oLog.style.top=w+'px';
+						
+					}
+					document.onmouseup=function(){
+						document.onmouseup=null;
+						document.onmousemove=null;
+					}
+					
+					
+				}
+				}
+				oClose.onclick=function(){
+					oLog.style.display='none'
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="all">
+			<input type='button'id="btn" value="登录" />
+			
+				<div id="login">
+					<legend>登录框</legend>
+					<label>账号</label>
+					<input type="text" name="" id="" value="" /><br /><br />
+					<label>密码</label>
+					<input type="password" />
+					<div id="close">
+						X
+					</div>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,28 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+#all{
+	width: 1280px;
+	height: 720px;
+	background-image: url(../img/d21708415312b167a37017b91806c17b.jpg);
+	background-size:100% ;
+	position: relative;
+}
+#login{
+	width: 500px;
+	height: 200px;
+	background-color:orangered;
+	display: none;
+	font: 20px "微软雅黑";
+	color: chartreuse;
+	position: absolute;
+	background-color: skyblue;
+}
+#close{
+	width: 30px;
+	height: 30px;
+	background-color:red ;
+	float: right;
+	margin-top: -80px;
+}
